@@ -14,7 +14,7 @@ const thirstTimer = () => {
     const timer = setInterval(() => {
         skeleton.thirst++
         console.log(skeleton.thirst)
-        document.querySelector("p").innerHTML = `Thirst: ${skeleton.thirst}`
+        document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         if(skeleton.thirst === 10) {
             clearInterval(timer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
@@ -30,7 +30,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 })
 
 document.querySelector("#start-button").addEventListener("click", () => {
-    document.querySelector("#button-control").innerHTML = '<div id="game-control"><div id="stats"><p> Thirst: 0 </div><button type="button" class="game-play-buttons" id="water">Water</button> <button type="button" class="game-play-buttons" id="fertalize">Fertalize</button> <button type="button" class="game-play-buttons" id="dark-energy">Imbue Dark Energy</button> </div>'
+    document.querySelector("#button-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> </div><button type="button" class="game-play-buttons" id="water">Water</button> <button type="button" class="game-play-buttons" id="fertalize">Fertalize</button> <button type="button" class="game-play-buttons" id="dark-energy">Imbue Dark Energy</button> </div>'
 })
 
 
