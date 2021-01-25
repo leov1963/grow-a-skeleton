@@ -10,12 +10,14 @@ let skeleton = {
 
 // ---make functions---
 
-const thirstTimer = () => {
+const thirstHungerTimer = () => {
     const timer = setInterval(() => {
         skeleton.thirst++
-        console.log(skeleton.thirst)
+        skeleton.hunger++
+        console.log(skeleton.hunger)
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
-        if(skeleton.thirst === 10) {
+        document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
+        if(skeleton.thirst === 10 || skeleton.hunger === 10) {
             clearInterval(timer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
         }
@@ -26,7 +28,7 @@ const thirstTimer = () => {
 
 // code to replace html elements when the play button is pressed
 document.querySelector("#start-button").addEventListener("click", () => {
-    thirstTimer()
+    thirstHungerTimer()
 })
 
 document.querySelector("#start-button").addEventListener("click", () => {
