@@ -14,7 +14,8 @@ const thirstHungerTimer = () => {
     const timer = setInterval(() => {
         skeleton.thirst++
         skeleton.hunger++
-        console.log(skeleton.hunger)
+        console.log(`hunger: ${skeleton.hunger}`)
+        console.log(`Thirst: ${skeleton.thirst}`)
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         if(skeleton.thirst === 10 || skeleton.hunger === 10) {
@@ -43,6 +44,14 @@ document.getElementById("water").addEventListener("click", () => {
     if (skeleton.thirst > 0) {
         skeleton.thirst--
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
-        console.log(skeleton.thirst)
+        console.log(`Thirst: ${skeleton.thirst}`)
+    }
+})
+
+document.getElementById("fertalize").addEventListener("click", () => {
+    if (skeleton.hunger > 0) {
+        skeleton.hunger--
+        document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
+        console.log(`hunger: ${skeleton.hunger}`)
     }
 })
