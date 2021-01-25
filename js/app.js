@@ -32,7 +32,17 @@ document.querySelector("#start-button").addEventListener("click", () => {
 })
 
 document.querySelector("#start-button").addEventListener("click", () => {
-    document.querySelector("#button-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> </div><button type="button" class="game-play-buttons" id="water">Water</button> <button type="button" class="game-play-buttons" id="fertalize">Fertalize</button> <button type="button" class="game-play-buttons" id="dark-energy">Imbue Dark Energy</button> </div>'
+    document.querySelector("#game-buttons-hidden").id = "game-buttons-shown"
 })
 
+document.querySelector("#start-button").addEventListener("click", () => {
+    document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> </div> </div>'
+})
 
+document.getElementById("water").addEventListener("click", () => {
+    if (skeleton.thirst > 0) {
+        skeleton.thirst--
+        document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
+        console.log(skeleton.thirst)
+    }
+})
