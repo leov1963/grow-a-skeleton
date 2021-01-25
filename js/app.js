@@ -1,12 +1,12 @@
 // ---set vars---
 
-// const skeleton = {
-//     age: 1,
-//     level: 1,
-//     thirst: 0,
-//     hunger: 0,
-//     darkEnergy: 10
-// }
+const skeleton = {
+    age: 1,
+    level: 1,
+    thirst: 0,
+    hunger: 0,
+    darkEnergy: 10
+}
 
 // ---make functions---
 
