@@ -14,11 +14,14 @@ const thirstHungerTimer = () => {
     const timer = setInterval(() => {
         skeleton.thirst++
         skeleton.hunger++
+        skeleton.darkEnergy--
         console.log(`hunger: ${skeleton.hunger}`)
         console.log(`Thirst: ${skeleton.thirst}`)
+        console.log(`D E: ${skeleton.darkEnergy}`)
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
-        if(skeleton.thirst === 10 || skeleton.hunger === 10) {
+        document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy ${skeleton.darkEnergy}` 
+        if(skeleton.thirst === 10 || skeleton.hunger === 10 || skeleton.darkEnergy === 0) {
             clearInterval(timer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
         }
@@ -37,7 +40,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 })
 
 document.querySelector("#start-button").addEventListener("click", () => {
-    document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> </div> </div>'
+    document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
 })
 
 document.getElementById("water").addEventListener("click", () => {
