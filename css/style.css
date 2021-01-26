@@ -23,6 +23,10 @@ p {
     font-size: 30px;
 }
 
+#game-over {
+    color: white;
+}
+
 #game-buttons-hidden {
     display: none;
 }
