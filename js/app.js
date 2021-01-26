@@ -10,6 +10,10 @@ let skeleton = {
 
 // ---make functions---
 
+const getRanNumInRange = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const hRedText = () => {
     if (skeleton.hunger >= 8) {
         document.getElementById("hunger-html").style.color = "red"

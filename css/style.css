@@ -6,6 +6,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: black;
+    font-family: "Press Start 2P";
 }
 
 button {
@@ -29,8 +30,7 @@ button {
 
 button:hover {
     color: rgb(53, 47, 92);
-    background-color: white;
-    
+    background-color: white;  
 }
 
 button:active {
@@ -43,7 +43,7 @@ p {
     color: white;
     text-align: center;
     text-shadow: 2px 2px black;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 h4 {
@@ -57,6 +57,11 @@ img {
 
 #game-over {
     color: white;
+}
+
+#skull {
+    width: 450px;
+    height: 350px;
 }
 
 @keyframes skele-grow {
@@ -92,6 +97,5 @@ img {
 
 #game-buttons-shown {
     font-size: large;
-    display: inline-flex;
-    
+    display: inline-flex;   
 }
