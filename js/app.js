@@ -16,11 +16,19 @@ const level2 = () => {
     }
 }
 
+const gameWin = () => {
+    if (skeleton.level === 3) {
+        document.getElementById("skull").src = "./assets/final-skele.png"
+        document.getElementById("game-win-control").innerHTML = "<h1>You Win!</h1><h4>Your first homegrown undead friend is fully powered up!</h4><div><button type='button'>Start Over?</button>"
+    }
+}
+
 const levelUp = () => {
     if ((skeleton.age % 6) === 0) {
         skeleton.level++
         console.log(`level: ${skeleton.level}`)
         level2()
+        gameWin()
     } else if (skeleton.age === 6 || 12) {
         skeleton.level = skeleton.level
         console.log(`level: ${skeleton.level}`)
