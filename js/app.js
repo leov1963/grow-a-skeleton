@@ -20,7 +20,7 @@ const gameWin = () => {
     if (skeleton.level === 3) {
         document.getElementById("skull").src = "./assets/final-skele.png"
         document.getElementById("skull").id = "win-skele"
-        document.getElementById("game-win-control").innerHTML = "<h1>You Win!</h1 id='you-win-text'><h4>Your first homegrown undead friend is fully powered up!</h4><div><button type='button'>Start Over?</button>"
+        document.getElementById("game-win-control").innerHTML = "<div id='game-win-control'><h1 id='you-win-text'>You Win!</h1><h4>Your first homegrown undead friend is fully powered up!</h4><button type='button'>Start Over?</button></div>"
     }
 }
 

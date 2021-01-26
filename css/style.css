@@ -30,12 +30,19 @@ h4 {
 }
 
 #win-skele {
-    height: 550px;
+    height: 600px;
     width: 300px;
+    padding-bottom: 30px;
 }
 
 #you-win-text {
     color: white;
+}
+
+#game-win-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #game-buttons-hidden {
