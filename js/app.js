@@ -10,9 +10,29 @@ let skeleton = {
 
 // ---make functions---
 
+const levelUp = () => {
+    if ((skeleton.age % 6) === 0) {
+        skeleton.level = skeleton.level
+    } else if (skeleton.age === 6 || 12) {
+        skeleton.level++
+        console.log(`level: ${skeleton.level}`)
+    }
+}
+
+const ageTimer = () => {
+    const aTimer = setInterval(() => {
+        if (skeleton.age < 12) {
+            skeleton.age++
+            console.log(`age: ${skeleton.age}`)
+            levelUp()
+        } else {
+            clearInterval(aTimer)
+        }
+    }, 10000)
+}
+
 const thirstTimer = () => {
     const timer = setInterval(() => {
-        
         if (skeleton.thirst === 10) {
             clearInterval(timer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
@@ -57,6 +77,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
     thirstTimer()
     hungerTimer()
     darknessTimer()
+    ageTimer()
 })
 
 document.querySelector("#start-button").addEventListener("click", () => {
@@ -71,7 +92,7 @@ document.getElementById("water").addEventListener("click", () => {
     if (skeleton.thirst > 0) {
         skeleton.thirst--
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
-        console.log(`Thirst: ${skeleton.thirst}`)
+        // console.log(`Thirst: ${skeleton.thirst}`)
     }
 })
 
@@ -79,7 +100,7 @@ document.getElementById("fertalize").addEventListener("click", () => {
     if (skeleton.hunger > 0) {
         skeleton.hunger--
         document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
-        console.log(`hunger: ${skeleton.hunger}`)
+        // console.log(`hunger: ${skeleton.hunger}`)
     }
 })
 
