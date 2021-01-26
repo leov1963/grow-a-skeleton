@@ -10,7 +10,18 @@ body {
     
 }
 
+button {
+    height: 50px;
+    width: 220px;
+    font-weight: 800;
+}
 
+p {
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px black;
+    font-size: 30px;
+}
 
 #game-buttons-hidden {
     display: none;
