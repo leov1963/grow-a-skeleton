@@ -18,6 +18,22 @@ const hRedText = () => {
     }
 }
 
+const tRedText = () => {
+    if (skeleton.thirst >= 8) {
+        document.getElementById("thirst-html").style.color = "red"
+    } else {
+        document.getElementById("thirst-html").style.color = "white"
+    }
+}
+
+const dRedText = () => {
+    if (skeleton.darkEnergy <= 2) {
+        document.getElementById("darkEnergy-html").style.color = "red"
+    } else {
+        document.getElementById("darkEnergy-html").style.color = "white"
+    }
+}
+
 const level2 = () => {
     if (skeleton.level === 2) {
         document.getElementById("skull").src = "./assets/GaS-lvl1-new.png"
@@ -63,6 +79,7 @@ const thirstTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.thirst < 10 && skeleton.level < 3) {
             skeleton.thirst++
+            tRedText()
             // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         }
@@ -90,6 +107,7 @@ const darknessTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.darkEnergy > 0 && skeleton.level < 3) {
             skeleton.darkEnergy--
+            dRedText()
             // console.log(`D E: ${skeleton.darkEnergy}`)
             document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
         }
@@ -117,6 +135,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 document.getElementById("water").addEventListener("click", () => {
     if (skeleton.thirst > 0) {
         skeleton.thirst--
+        tRedText()
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         // console.log(`Thirst: ${skeleton.thirst}`)
     }
@@ -134,6 +153,7 @@ document.getElementById("fertalize").addEventListener("click", () => {
 document.getElementById("dark-energy").addEventListener("click", () => {
     if (skeleton.darkEnergy < 10) {
         skeleton.darkEnergy++
+        dRedText()
         document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}`
     }
 })
