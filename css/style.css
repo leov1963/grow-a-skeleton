@@ -9,8 +9,10 @@ body {
 }
 
 button {
-    height: 50px;
+    height: 100px;
     width: 220px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 150px;
     outline: none;
     font-weight: 800;
@@ -21,7 +23,8 @@ button {
     border: solid rgb(192, 0, 192);
     border-radius: 5px;
     border-width: 2px;
-    box-shadow: 0 9px #999;
+    box-shadow: 0 9px rgb(37, 34, 61);
+    font-family: "Press Start 2P";
 }
 
 button:hover {
@@ -31,7 +34,7 @@ button:hover {
 }
 
 button:active {
-    box-shadow: 0 5px #666;
+    box-shadow: 0 5px rgb(32, 29, 53);
     transform: translateY(4px);
     background-color: lightgrey;
 }
@@ -77,4 +80,6 @@ img {
 
 #game-buttons-shown {
     font-size: large;
+    display: inline-flex;
+    
 }
