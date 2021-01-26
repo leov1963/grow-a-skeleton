@@ -11,6 +11,7 @@ body {
 button {
     height: 50px;
     width: 220px;
+    margin-bottom: 150px;
     font-weight: 800;
     transition: color .5s;
     transition: background-color .7s;
@@ -38,14 +39,18 @@ h4 {
     color: white;
 }
 
+img {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 #game-over {
     color: white;
 }
 
 #win-skele {
-    height: 600px;
-    width: 300px;
-    padding-bottom: 30px;
+    height: 500px;
+    width: 225px;
 }
 
 #you-win-text {

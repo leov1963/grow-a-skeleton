@@ -10,6 +10,14 @@ let skeleton = {
 
 // ---make functions---
 
+const hRedText = () => {
+    if (skeleton.hunger >= 8) {
+        document.getElementById("hunger-html").style.color = "red"
+    } else {
+        document.getElementById("hunger-html").style.color = "white"
+    }
+}
+
 const level2 = () => {
     if (skeleton.level === 2) {
         document.getElementById("skull").src = "./assets/GaS-lvl1-new.png"
@@ -68,6 +76,7 @@ const hungerTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.hunger < 10 && skeleton.level < 3) {
             skeleton.hunger++
+            hRedText()
             // console.log(`hunger: ${skeleton.hunger}`)
             document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         }
@@ -116,6 +125,7 @@ document.getElementById("water").addEventListener("click", () => {
 document.getElementById("fertalize").addEventListener("click", () => {
     if (skeleton.hunger > 0) {
         skeleton.hunger--
+        hRedText()
         document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         // console.log(`hunger: ${skeleton.hunger}`)
     }
