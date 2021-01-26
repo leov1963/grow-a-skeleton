@@ -29,6 +29,15 @@ h4 {
     color: white;
 }
 
+#win-skele {
+    height: 550px;
+    width: 300px;
+}
+
+#you-win-text {
+    color: white;
+}
+
 #game-buttons-hidden {
     display: none;
 }

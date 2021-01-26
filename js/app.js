@@ -19,7 +19,8 @@ const level2 = () => {
 const gameWin = () => {
     if (skeleton.level === 3) {
         document.getElementById("skull").src = "./assets/final-skele.png"
-        document.getElementById("game-win-control").innerHTML = "<h1>You Win!</h1><h4>Your first homegrown undead friend is fully powered up!</h4><div><button type='button'>Start Over?</button>"
+        document.getElementById("skull").id = "win-skele"
+        document.getElementById("game-win-control").innerHTML = "<h1>You Win!</h1 id='you-win-text'><h4>Your first homegrown undead friend is fully powered up!</h4><div><button type='button'>Start Over?</button>"
     }
 }
 
@@ -52,7 +53,7 @@ const thirstTimer = () => {
         if (skeleton.thirst === 10) {
             clearInterval(timer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } else if (skeleton.thirst < 10) {
+        } else if (skeleton.thirst < 10 && skeleton.level < 3) {
             skeleton.thirst++
             // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
@@ -65,7 +66,7 @@ const hungerTimer = () => {
         if (skeleton.hunger === 10) {
             clearInterval(hTimer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } else if (skeleton.hunger < 10) {
+        } else if (skeleton.hunger < 10 && skeleton.level < 3) {
             skeleton.hunger++
             // console.log(`hunger: ${skeleton.hunger}`)
             document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
@@ -78,7 +79,7 @@ const darknessTimer = () => {
         if (skeleton.darkEnergy === 0) {
             clearInterval(dTimer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } else if (skeleton.darkEnergy > 0) {
+        } else if (skeleton.darkEnergy > 0 && skeleton.level < 3) {
             skeleton.darkEnergy--
             // console.log(`D E: ${skeleton.darkEnergy}`)
             document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
