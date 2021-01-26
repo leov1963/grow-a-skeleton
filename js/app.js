@@ -10,10 +10,17 @@ let skeleton = {
 
 // ---make functions---
 
+const level2 = () => {
+    if (skeleton.level === 2) {
+        document.getElementById("skull").src = "./assets/GaS-lvl1-new.png"
+    }
+}
+
 const levelUp = () => {
     if ((skeleton.age % 6) === 0) {
         skeleton.level++
         console.log(`level: ${skeleton.level}`)
+        level2()
     } else if (skeleton.age === 6 || 12) {
         skeleton.level = skeleton.level
         console.log(`level: ${skeleton.level}`)
