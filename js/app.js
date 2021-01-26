@@ -12,36 +12,40 @@ let skeleton = {
 
 const thirstTimer = () => {
     const timer = setInterval(() => {
-        skeleton.thirst++
-        console.log(`Thirst: ${skeleton.thirst}`)
-        document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
+        
         if (skeleton.thirst === 10) {
             clearInterval(timer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
+        } else if (skeleton.thirst < 10) {
+            skeleton.thirst++
+            console.log(`Thirst: ${skeleton.thirst}`)
+            document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         }
     }, 3000);
 } 
 
 const hungerTimer = () => {
     const hTimer = setInterval(() => {
-        skeleton.hunger++
-        console.log(`hunger: ${skeleton.hunger}`)
-        document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         if (skeleton.hunger === 10) {
             clearInterval(hTimer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
+        } else if (skeleton.hunger < 10) {
+            skeleton.hunger++
+            console.log(`hunger: ${skeleton.hunger}`)
+            document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         }
     }, 5000)
 }
 
 const darknessTimer = () => {
     const dTimer = setInterval(() => {
-        skeleton.darkEnergy--
-        console.log(`D E: ${skeleton.darkEnergy}`)
-        document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
         if (skeleton.darkEnergy === 0) {
             clearInterval(dTimer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
+        } else if (skeleton.darkEnergy > 0) {
+            skeleton.darkEnergy--
+            console.log(`D E: ${skeleton.darkEnergy}`)
+            document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
         }
     }, 7000)
 }
