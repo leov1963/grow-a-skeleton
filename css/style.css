@@ -12,6 +12,7 @@ button {
     height: 50px;
     width: 220px;
     margin-bottom: 150px;
+    outline: none;
     font-weight: 800;
     transition: color .5s;
     transition: background-color .7s;
@@ -20,12 +21,19 @@ button {
     border: solid rgb(192, 0, 192);
     border-radius: 5px;
     border-width: 2px;
+    box-shadow: 0 9px #999;
 }
 
 button:hover {
     color: rgb(53, 47, 92);
     background-color: white;
     
+}
+
+button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    background-color: lightgrey;
 }
 
 p {
