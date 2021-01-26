@@ -31,7 +31,7 @@ const ageTimer = () => {
     const aTimer = setInterval(() => {
         if (skeleton.age < 12) {
             skeleton.age++
-            console.log(`age: ${skeleton.age}`)
+            // console.log(`age: ${skeleton.age}`)
             levelUp()
         } else {
             clearInterval(aTimer)
@@ -46,7 +46,7 @@ const thirstTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.thirst < 10) {
             skeleton.thirst++
-            console.log(`Thirst: ${skeleton.thirst}`)
+            // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         }
     }, 3000);
@@ -59,7 +59,7 @@ const hungerTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.hunger < 10) {
             skeleton.hunger++
-            console.log(`hunger: ${skeleton.hunger}`)
+            // console.log(`hunger: ${skeleton.hunger}`)
             document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         }
     }, 5000)
@@ -72,7 +72,7 @@ const darknessTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.darkEnergy > 0) {
             skeleton.darkEnergy--
-            console.log(`D E: ${skeleton.darkEnergy}`)
+            // console.log(`D E: ${skeleton.darkEnergy}`)
             document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
         }
     }, 7000)
