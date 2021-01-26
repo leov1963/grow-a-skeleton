@@ -23,6 +23,10 @@ p {
     font-size: 30px;
 }
 
+h4 {
+    color: white;
+}
+
 #game-over {
     color: white;
 }

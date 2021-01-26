@@ -12,9 +12,10 @@ let skeleton = {
 
 const levelUp = () => {
     if ((skeleton.age % 6) === 0) {
-        skeleton.level = skeleton.level
-    } else if (skeleton.age === 6 || 12) {
         skeleton.level++
+        console.log(`level: ${skeleton.level}`)
+    } else if (skeleton.age === 6 || 12) {
+        skeleton.level = skeleton.level
         console.log(`level: ${skeleton.level}`)
     }
 }
@@ -35,7 +36,7 @@ const thirstTimer = () => {
     const timer = setInterval(() => {
         if (skeleton.thirst === 10) {
             clearInterval(timer)
-            document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
+            document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.thirst < 10) {
             skeleton.thirst++
             console.log(`Thirst: ${skeleton.thirst}`)
@@ -48,7 +49,7 @@ const hungerTimer = () => {
     const hTimer = setInterval(() => {
         if (skeleton.hunger === 10) {
             clearInterval(hTimer)
-            document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
+            document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.hunger < 10) {
             skeleton.hunger++
             console.log(`hunger: ${skeleton.hunger}`)
@@ -61,7 +62,7 @@ const darknessTimer = () => {
     const dTimer = setInterval(() => {
         if (skeleton.darkEnergy === 0) {
             clearInterval(dTimer)
-            document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1>"
+            document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.darkEnergy > 0) {
             skeleton.darkEnergy--
             console.log(`D E: ${skeleton.darkEnergy}`)
