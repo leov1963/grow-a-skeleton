@@ -14,7 +14,7 @@ button {
     width: 220px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-bottom: 150px;
+    margin-bottom: 20px;
     outline: none;
     font-weight: 800;
     transition: color .5s;
@@ -39,11 +39,13 @@ button:active {
     background-color: lightgrey;
 }
 
-p {
+p, #age-counter {
     color: white;
     text-align: center;
     text-shadow: 2px 2px black;
     font-size: 25px;
+    margin-bottom: 25px;
+    margin-top: 10px;
 }
 
 h4 {
@@ -51,8 +53,8 @@ h4 {
 }
 
 img {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #game-over {
@@ -99,3 +101,21 @@ img {
     font-size: large;
     display: inline-flex;   
 }
+
+#age-counter {
+    position: relative;
+    left: 20px;
+    bottom: 2%;;
+    transform: translateY(-50%);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#age-counter div {
+    
+    width:  3vh;
+    height: 3vh;
+    display: inline-block;
+    background-color: gold;
+  }
+

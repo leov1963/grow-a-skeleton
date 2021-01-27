@@ -1,7 +1,7 @@
 // ---set vars---
 
 let skeleton = {
-    age: 1,
+    age: 0,
     level: 1,
     thirst: 0,
     hunger: 0,
@@ -92,6 +92,7 @@ const ageTimer = () => {
     const aTimer = setInterval(() => {
         if (skeleton.age < 12) {
             skeleton.age++
+            squareTimer()
             // console.log(`age: ${skeleton.age}`)
             levelUp()
         } else {
@@ -150,6 +151,16 @@ const darknessTimer = () => {
     }, 7000)
 }
 
+const squareTimer = () => {
+    if (skeleton.age < 12 && skeleton.age != 6) {
+        const square = document.createElement("div")
+        document.querySelector("#age-counter").appendChild(square)
+    } else if (skeleton.age === 6) {
+        document.querySelector("#age-counter").innerHTML = `Level 2 Progress:`
+    }
+
+}
+
 // ---event listeners---
 
 // code to replace html elements when the play button is pressed
@@ -166,6 +177,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 
 document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
+    document.querySelector("#age-counter").innerHTML = `Level 1 Progress:`
     hGreenText()
     tGreenText()
     dGreenText()
