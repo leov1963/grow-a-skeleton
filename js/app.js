@@ -77,12 +77,12 @@ const gameWin = () => {
 }
 
 const levelUp = () => {
-    if ((skeleton.age % 6) === 0) {
+    if ((skeleton.age % 12) === 0) {
         skeleton.level++
         console.log(`level: ${skeleton.level}`)
         level2()
         gameWin()
-    } else if (skeleton.age === 6 || 12) {
+    } else if (skeleton.age === 12 || 24) {
         skeleton.level = skeleton.level
         console.log(`level: ${skeleton.level}`)
     }
@@ -90,7 +90,7 @@ const levelUp = () => {
 
 const ageTimer = () => {
     const aTimer = setInterval(() => {
-        if (skeleton.age < 12) {
+        if (skeleton.age < 24) {
             skeleton.age++
             squareTimer()
             // console.log(`age: ${skeleton.age}`)
@@ -98,13 +98,43 @@ const ageTimer = () => {
         } else {
             clearInterval(aTimer)
         }
-    }, 10000)
+    }, 10000) 
 }
 
+
+// const thirstTimer = () => {
+//     // run a loop
+//     while (skeleton.thirst < skeleton.thirst+1 && skeleton.level < 3) {
+//         // get ran number 
+//         let ranTimeT = getRanNumInRange(2, 7) * 1000
+        
+//         if (skeleton.thirst === 10) {
+//             clearInterval(timer)
+//             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
+//         } else if (skeleton.thirst < 10 && skeleton.level < 3) {
+//             skeleton.thirst++
+//             tRedText()
+//             tGreenText()
+//             // console.log(`Thirst: ${skeleton.thirst}`)
+//             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`           
+//         }
+//         setInterval(function() {
+//             thirstTimer()
+//         }, ranTimeT);
+//         console.log("time: " + ranTimeT)
+//     }
+// }
+// contains if else logic 
+//set interval  
+
+// ----------
 let ranTimeT = getRanNumInRange(2, 7) * 1000
 
 const thirstTimer = () => {
-    
+// run a loop
+// get ran number 
+// contains if else logic 
+//set interval  
     const timer = setInterval(() => {
         
         if (skeleton.thirst === 10) {
@@ -116,10 +146,11 @@ const thirstTimer = () => {
             tGreenText()
             // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
-       
+            
         }
     }, ranTimeT);
-} 
+    console.log("time: " + ranTimeT)
+}
 
 const hungerTimer = () => {
     const hTimer = setInterval(() => {
@@ -152,10 +183,10 @@ const darknessTimer = () => {
 }
 
 const squareTimer = () => {
-    if (skeleton.age < 12 && skeleton.age != 6) {
+    if (skeleton.age < 24 && skeleton.age != 12) {
         const square = document.createElement("div")
         document.querySelector("#age-counter").appendChild(square)
-    } else if (skeleton.age === 6) {
+    } else if (skeleton.age === 12) {
         document.querySelector("#age-counter").innerHTML = `Level 2 Progress:`
     }
 
@@ -164,12 +195,6 @@ const squareTimer = () => {
 // ---event listeners---
 
 // code to replace html elements when the play button is pressed
-document.querySelector("#start-button").addEventListener("click", () => {
-    thirstTimer()
-    hungerTimer()
-    darknessTimer()
-    ageTimer()
-})
 
 document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#game-buttons-hidden").id = "game-buttons-shown"
@@ -181,6 +206,13 @@ document.querySelector("#start-button").addEventListener("click", () => {
     hGreenText()
     tGreenText()
     dGreenText()
+})
+
+document.querySelector("#start-button").addEventListener("click", () => {
+    thirstTimer()
+    hungerTimer()
+    darknessTimer()
+    ageTimer()
 })
 
 document.getElementById("water").addEventListener("click", () => {
