@@ -38,9 +38,25 @@ const tRedText = () => {
     }
 }
 
+const tGreenText = () => {
+    if (skeleton.thirst <= 2) {
+        document.getElementById("thirst-html").style.color = "green"
+    } else {
+        document.getElementById("thirst-html").style.color = "white"
+    }
+}
+
 const dRedText = () => {
     if (skeleton.darkEnergy <= 2) {
         document.getElementById("darkEnergy-html").style.color = "red"
+    } else {
+        document.getElementById("darkEnergy-html").style.color = "white"
+    }
+}
+
+const dGreenText = () => {
+    if (skeleton.darkEnergy >= 8) {
+        document.getElementById("darkEnergy-html").style.color = "green"
     } else {
         document.getElementById("darkEnergy-html").style.color = "white"
     }
@@ -96,6 +112,7 @@ const thirstTimer = () => {
         } else if (skeleton.thirst < 10 && skeleton.level < 3) {
             skeleton.thirst++
             tRedText()
+            tGreenText()
             // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
        
@@ -126,6 +143,7 @@ const darknessTimer = () => {
         } else if (skeleton.darkEnergy > 0 && skeleton.level < 3) {
             skeleton.darkEnergy--
             dRedText()
+            dGreenText()
             // console.log(`D E: ${skeleton.darkEnergy}`)
             document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
         }
@@ -149,12 +167,15 @@ document.querySelector("#start-button").addEventListener("click", () => {
 document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
     hGreenText()
+    tGreenText()
+    dGreenText()
 })
 
 document.getElementById("water").addEventListener("click", () => {
     if (skeleton.thirst > 0) {
         skeleton.thirst--
         tRedText()
+        tGreenText()
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
         // console.log(`Thirst: ${skeleton.thirst}`)
     }
@@ -174,6 +195,7 @@ document.getElementById("dark-energy").addEventListener("click", () => {
     if (skeleton.darkEnergy < 10) {
         skeleton.darkEnergy++
         dRedText()
+        dGreenText()
         document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}`
     }
 })
