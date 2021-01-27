@@ -76,8 +76,15 @@ const ageTimer = () => {
     }, 10000)
 }
 
+let ranTimeT = getRanNumInRange(2, 7) * 1000
+
+
+
+
 const thirstTimer = () => {
+    
     const timer = setInterval(() => {
+        
         if (skeleton.thirst === 10) {
             clearInterval(timer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
@@ -86,8 +93,9 @@ const thirstTimer = () => {
             tRedText()
             // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
+       
         }
-    }, 3000);
+    }, ranTimeT);
 } 
 
 const hungerTimer = () => {
