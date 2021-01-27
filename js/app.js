@@ -48,7 +48,7 @@ const gameWin = () => {
     if (skeleton.level === 3) {
         document.getElementById("skull").src = "./assets/final-skele.png"
         document.getElementById("skull").id = "win-skele"
-        document.getElementById("game-win-control").innerHTML = "<div id='game-win-control'><h1 id='you-win-text'>You Win!</h1><h4>Your first homegrown undead friend is fully powered up!</h4><button type='button'>Start Over?</button></div>"
+        document.getElementById("game-win-control").innerHTML = "<div id='game-win-control'><h1 id='you-win-text'>You Win!</h1><h4>Your first homegrown undead friend is fully powered up!</h4><button type='submit' id='start-over-button' onClick='window.location.reload();''>Start Over?</button></div>"
     }
 }
 
@@ -77,9 +77,6 @@ const ageTimer = () => {
 }
 
 let ranTimeT = getRanNumInRange(2, 7) * 1000
-
-
-
 
 const thirstTimer = () => {
     
@@ -169,3 +166,4 @@ document.getElementById("dark-energy").addEventListener("click", () => {
         document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}`
     }
 })
+
