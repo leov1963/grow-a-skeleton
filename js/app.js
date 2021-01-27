@@ -22,6 +22,14 @@ const hRedText = () => {
     }
 }
 
+const hGreenText = () => {
+    if (skeleton.hunger <= 2) {
+        document.getElementById("hunger-html").style.color = "green"
+    } else {
+        document.getElementById("hunger-html").style.color = "white"
+    }
+}
+
 const tRedText = () => {
     if (skeleton.thirst >= 8) {
         document.getElementById("thirst-html").style.color = "red"
@@ -103,6 +111,7 @@ const hungerTimer = () => {
         } else if (skeleton.hunger < 10 && skeleton.level < 3) {
             skeleton.hunger++
             hRedText()
+            hGreenText()
             // console.log(`hunger: ${skeleton.hunger}`)
             document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         }
@@ -139,6 +148,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 
 document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
+    hGreenText()
 })
 
 document.getElementById("water").addEventListener("click", () => {
@@ -154,6 +164,7 @@ document.getElementById("fertalize").addEventListener("click", () => {
     if (skeleton.hunger > 0) {
         skeleton.hunger--
         hRedText()
+        hGreenText()
         document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         // console.log(`hunger: ${skeleton.hunger}`)
     }
