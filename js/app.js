@@ -100,7 +100,7 @@ const ageTimer = () => {
         } else {
             clearInterval(aTimer)
         }
-    }, 1000) 
+    }, 10000) 
 }
 
 
@@ -247,3 +247,18 @@ document.getElementById("dark-energy").addEventListener("click", () => {
     }
 })
 
+
+// change pic when buttons are pressed
+document.getElementById("water").addEventListener("mousedown", () => {
+    if (skeleton.level === 1){
+        document.querySelector("#skull").src = "./assets/wet-skull.png"
+    } else if (skeleton.level === 2) {
+        
+    }
+})
+
+document.getElementById("water").addEventListener("mouseleave", () => {
+    if (skeleton.level === 1) {
+        document.querySelector("#skull").src = "./assets/skull.png"
+    }
+})
