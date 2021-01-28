@@ -24,39 +24,20 @@ const getRanNumInRange = (min, max) => {
 const hungerTextColor = () => {
     if (skeleton.hunger >= 8) {
         document.getElementById("hunger-html").style.color = "red"
-        console.log("red")
     } else if (skeleton.hunger < 8 && skeleton.hunger > 2) {
         document.getElementById("hunger-html").style.color = "white"
-        console.log("white")
     } else if (skeleton.hunger <= 2) {
         document.getElementById("hunger-html").style.color = "green"
-        console.log("green")
     }
 }
 
-// const hGreenText = () => {
-//     if (skeleton.hunger <= 2) {
-//         document.getElementById("hunger-html").style.color = "green"
-//         console.log("green")
-//     } else if (skeleton.hunger > 2 && skeleton.hunger < 8) {
-//         document.getElementById("hunger-html").style.color = "white"
-//         console.log("G:white")
-//     }
-// }
-
-const tRedText = () => {
+const thirstTextColor = () => {
     if (skeleton.thirst >= 8) {
         document.getElementById("thirst-html").style.color = "red"
-    } else {
+    } else if (skeleton.thirst < 8 && skeleton.thirst > 2) {
         document.getElementById("thirst-html").style.color = "white"
-    }
-}
-
-const tGreenText = () => {
-    if (skeleton.thirst <= 2) {
+    } else if (skeleton.thirst <= 2) {
         document.getElementById("thirst-html").style.color = "green"
-    } else {
-        document.getElementById("thirst-html").style.color = "white"
     }
 }
 
@@ -159,8 +140,8 @@ const thirstTimer = (ms) => {
         else {
             
             skeleton.thirst++
-            tRedText()
-            tGreenText()
+            thirstTextColor()
+            // tGreenText()
             // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`            
             
@@ -168,10 +149,6 @@ const thirstTimer = (ms) => {
             thirstTimer(randomMilliseconds)
         }
     }, ms)
-    // setInterval(() => {
-        
-    // }, ranTimeT);
-    // console.log("time: " + ranTimeT)
 }
 
 const hungerTimer = () => {
@@ -183,8 +160,6 @@ const hungerTimer = () => {
         } else if (skeleton.hunger < 10 && skeleton.level < 3) {
             skeleton.hunger++
             hungerTextColor()
-            // hGreenText()
-            // console.log(`hunger: ${skeleton.hunger}`)
             document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         }
     }, 5000)
@@ -229,8 +204,8 @@ document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
     document.querySelector("#age-counter").innerHTML = `Level 1 Progress:`
     document.querySelector("h3").innerHTML = "Let's help our friend grow!<br /><br />make sure to water, fertalize, and imbue the skull with dark energy as needed"
-    hungerTextColor() // hGreenText()
-    tGreenText()
+    hungerTextColor() 
+    thirstTextColor()
     dGreenText()
 })
 
@@ -244,10 +219,8 @@ document.querySelector("#start-button").addEventListener("click", () => {
 document.getElementById("water").addEventListener("click", () => {
     if (skeleton.thirst > 0) {
         skeleton.thirst--
-        tRedText()
-        tGreenText()
+        thirstTextColor()
         document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
-        // console.log(`Thirst: ${skeleton.thirst}`)
     }
 })
 
