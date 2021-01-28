@@ -211,13 +211,15 @@ document.getElementById("water").addEventListener("mousedown", () => {
     if (skeleton.level === 1){
         document.querySelector("#skull").src = "./assets/wet-skull.png"
     } else if (skeleton.level === 2) {
-        
+        document.querySelector("#skull").src ="./assets/wet-skeleton.png"
     }
 })
 
 document.getElementById("water").addEventListener("mouseleave", () => {
     if (skeleton.level === 1) {
         document.querySelector("#skull").src = "./assets/skull.png"
+    } else if (skeleton.level === 2) {
+        document.querySelector("#skull").src = "./assets/GaS-lvl1-new.png"
     }
 })
 
@@ -225,13 +227,15 @@ document.getElementById("fertalize").addEventListener("mousedown", () => {
     if (skeleton.level === 1){
         document.querySelector("#skull").src = "./assets/dirt-skull.png"
     } else if (skeleton.level === 2) {
-        
+        document.querySelector("#skull").src = "./assets/dirt-skeleton.png"
     }
 })
 
 document.getElementById("fertalize").addEventListener("mouseleave", () => {
     if (skeleton.level === 1) {
         document.querySelector("#skull").src = "./assets/skull.png"
+    } else if (skeleton.level === 2) {
+        document.querySelector("#skull").src = "./assets/GaS-lvl1-new.png"
     }
 })
 
@@ -239,12 +243,14 @@ document.getElementById("dark-energy").addEventListener("mousedown", () => {
     if (skeleton.level === 1){
         document.querySelector("#skull").src = "./assets/dark-skull.png"
     } else if (skeleton.level === 2) {
-        
+        document.querySelector("#skull").src = "./assets/dark-skeleton.png"
     }
 })
 
 document.getElementById("dark-energy").addEventListener("mouseleave", () => {
     if (skeleton.level === 1) {
         document.querySelector("#skull").src = "./assets/skull.png"
+    } else if (skeleton.level === 2) {
+        document.querySelector("#skull").src = "./assets/GaS-lvl1-new.png"
     }
 })
