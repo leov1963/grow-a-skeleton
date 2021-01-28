@@ -92,38 +92,9 @@ const ageTimer = () => {
     }, 10000) 
 }
 
-
-// const thirstTimer = () => {
-//     // run a loop
-//     while (skeleton.thirst < skeleton.thirst+1 && skeleton.level < 3) {
-//         // get ran number 
-//         let ranTimeT = getRanNumInRange(2, 7) * 1000
-        
-//         if (skeleton.thirst === 10) {
-//             clearInterval(timer)
-//             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-//         } else if (skeleton.thirst < 10 && skeleton.level < 3) {
-//             skeleton.thirst++
-//             tRedText()
-//             tGreenText()
-//             // console.log(`Thirst: ${skeleton.thirst}`)
-//             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`           
-//         }
-//         setInterval(function() {
-//             thirstTimer()
-//         }, ranTimeT);
-//         console.log("time: " + ranTimeT)
-//     }
-// }
-// contains if else logic 
-//set interval  
-
-// ----------
-
 const thirstTimer = (ms) => {
 
     setTimeout( () => {
-        console.log(ms + "milliseconds has passed")
         if (skeleton.isDead || skeleton.level === 3) {
             return 
         }
@@ -143,18 +114,27 @@ const thirstTimer = (ms) => {
     }, ms)
 }
 
-const hungerTimer = () => {
-    const hTimer = setInterval(() => {
-        if (skeleton.hunger === 10) {
+const hungerTimer = (ms) => {
+
+    setTimeout( () => {
+        console.log(ms + "milliseconds has passed")
+        if (skeleton.isDead || skeleton.level === 3) {
+            return 
+        }
+        else if (skeleton.hunger === 10) {
             skeleton.isDead = true
-            clearInterval(hTimer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } else if (skeleton.hunger < 10 && skeleton.level < 3) {
+        } 
+        else {
+            
             skeleton.hunger++
             hungerTextColor()
-            document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
+            document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`            
+            
+            const randomMilliseconds = getRanNumInRange(4, 9) * 1000
+            hungerTimer(randomMilliseconds)
         }
-    }, 5000)
+    }, ms)
 }
 
 const darknessTimer = () => {
@@ -201,7 +181,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 
 document.querySelector("#start-button").addEventListener("click", () => {
     thirstTimer(getRanNumInRange(2, 7) * 1000)
-    hungerTimer()
+    hungerTimer(getRanNumInRange(4, 9) * 1000)
     darknessTimer()
     ageTimer()
 })
