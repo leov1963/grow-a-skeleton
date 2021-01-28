@@ -48,6 +48,14 @@ p, #age-counter {
     margin-top: 10px;
 }
 
+h3 {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    text-shadow: 2px 2px black;
+    
+}
+
 h4 {
     color: white;
 }
@@ -74,6 +82,8 @@ img {
 }
 
 #win-skele {
+    margin-top: 1px;
+    padding-top: 1px;
     height: 500px;
     width: 225px;
     animation-name: skele-grow;

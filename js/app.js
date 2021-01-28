@@ -65,6 +65,7 @@ const dGreenText = () => {
 const level2 = () => {
     if (skeleton.level === 2) {
         document.getElementById("skull").src = "./assets/GaS-lvl1-new.png"
+        document.querySelector("h3").innerHTML = "Nice! Your skull is now a skeleton!<br /><br />he's looking pretty weak though, he's gonna need some more care still"
     }
 }
 
@@ -72,6 +73,7 @@ const gameWin = () => {
     if (skeleton.level === 3) {
         document.getElementById("skull").src = "./assets/final-skele.png"
         document.getElementById("skull").id = "win-skele"
+        document.querySelector("h3").innerHTML = " "
         document.getElementById("game-win-control").innerHTML = "<div id='game-win-control'><h1 id='you-win-text'>You Win!</h1><h4>Your first homegrown undead friend is fully powered up!</h4><button type='submit' id='start-over-button' onClick='window.location.reload();''>Start Over?</button></div>"
     }
 }
@@ -98,7 +100,7 @@ const ageTimer = () => {
         } else {
             clearInterval(aTimer)
         }
-    }, 10000) 
+    }, 1000) 
 }
 
 
@@ -203,6 +205,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
     document.querySelector("#age-counter").innerHTML = `Level 1 Progress:`
+    document.querySelector("h3").innerHTML = "Let's help our friend grow!<br /><br />make sure to water, fertalize, and imbue the skull with dark energy as needed"
     hGreenText()
     tGreenText()
     dGreenText()
