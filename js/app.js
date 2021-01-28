@@ -1,14 +1,15 @@
-// ---set vars---
+// ---global vars---
 
-let skeleton = {
+const skeleton = {
     age: 0,
     level: 1,
     thirst: 0,
     hunger: 0,
-    darkEnergy: 10
+    darkEnergy: 10,
+    isDead: false
 }
 
-// ---make functions---
+// ---functions---
 
 const getRanNumInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -130,33 +131,40 @@ const ageTimer = () => {
 //set interval  
 
 // ----------
-let ranTimeT = getRanNumInRange(2, 7) * 1000
 
-const thirstTimer = () => {
-// run a loop
-// get ran number 
-// contains if else logic 
-//set interval  
-    const timer = setInterval(() => {
-        
-        if (skeleton.thirst === 10) {
-            clearInterval(timer)
+const thirstTimer = (ms) => {
+
+    setTimeout( () => {
+        console.log(ms + "milliseconds has passed")
+        if (skeleton.isDead || skeleton.level === 3) {
+            return 
+        }
+        else if (skeleton.thirst === 10) {
+            
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } else if (skeleton.thirst < 10 && skeleton.level < 3) {
+        } 
+        else {
+            
             skeleton.thirst++
             tRedText()
             tGreenText()
             // console.log(`Thirst: ${skeleton.thirst}`)
-            document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`
+            document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`            
             
+            const randomMilliseconds = getRanNumInRange(2, 7) * 1000
+            thirstTimer(randomMilliseconds)
         }
-    }, ranTimeT);
-    console.log("time: " + ranTimeT)
+    }, ms)
+    // setInterval(() => {
+        
+    // }, ranTimeT);
+    // console.log("time: " + ranTimeT)
 }
 
 const hungerTimer = () => {
     const hTimer = setInterval(() => {
         if (skeleton.hunger === 10) {
+            skeleton.isDead = true
             clearInterval(hTimer)
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.hunger < 10 && skeleton.level < 3) {
@@ -212,7 +220,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 })
 
 document.querySelector("#start-button").addEventListener("click", () => {
-    thirstTimer()
+    thirstTimer(getRanNumInRange(2, 7) * 1000)
     hungerTimer()
     darknessTimer()
     ageTimer()
