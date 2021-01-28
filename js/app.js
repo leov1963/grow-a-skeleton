@@ -220,3 +220,31 @@ document.getElementById("water").addEventListener("mouseleave", () => {
         document.querySelector("#skull").src = "./assets/skull.png"
     }
 })
+
+document.getElementById("fertalize").addEventListener("mousedown", () => {
+    if (skeleton.level === 1){
+        document.querySelector("#skull").src = "./assets/dirt-skull.png"
+    } else if (skeleton.level === 2) {
+        
+    }
+})
+
+document.getElementById("fertalize").addEventListener("mouseleave", () => {
+    if (skeleton.level === 1) {
+        document.querySelector("#skull").src = "./assets/skull.png"
+    }
+})
+
+document.getElementById("dark-energy").addEventListener("mousedown", () => {
+    if (skeleton.level === 1){
+        document.querySelector("#skull").src = "./assets/dark-skull.png"
+    } else if (skeleton.level === 2) {
+        
+    }
+})
+
+document.getElementById("dark-energy").addEventListener("mouseleave", () => {
+    if (skeleton.level === 1) {
+        document.querySelector("#skull").src = "./assets/skull.png"
+    }
+})
