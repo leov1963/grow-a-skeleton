@@ -134,7 +134,7 @@ const thirstTimer = (ms) => {
             return 
         }
         else if (skeleton.thirst === 10) {
-            
+            skeleton.isDead = true
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } 
         else {
