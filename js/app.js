@@ -68,18 +68,18 @@ const gameWin = () => {
 }
 
 const levelUp = () => {
-    if ((skeleton.age % 12) === 0) {
+    if ((skeleton.age % 14) === 0) {
         skeleton.level++
         level2()
         gameWin()
-    } else if (skeleton.age === 12 || 24) {
-        skeleton.level = skeleton.level
+    } else if (skeleton.age === 14 || 28) {
+        return
     }
 }
 
 const ageTimer = () => {
     const aTimer = setInterval(() => {
-        if (skeleton.age < 24 && skeleton.isDead === false) {
+        if (skeleton.age < 28 && skeleton.isDead === false) {
             skeleton.age++
             squareTimer()
             // console.log(`age: ${skeleton.age}`)
@@ -142,10 +142,10 @@ const darknessTimer = (ms) => {
 }
 
 const squareTimer = () => {
-    if (skeleton.age < 24 && skeleton.age != 12 && skeleton.isDead === false) {
+    if (skeleton.age < 28 && skeleton.age != 14 && skeleton.isDead === false) {
         const square = document.createElement("div")
         document.querySelector("#age-counter").appendChild(square)
-    } else if (skeleton.age === 12) {
+    } else if (skeleton.age === 14) {
         document.querySelector("#age-counter").innerHTML = `Level 2 Progress:`
     } else {
         return
