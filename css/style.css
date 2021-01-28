@@ -26,6 +26,7 @@ button {
     border-width: 2px;
     box-shadow: 0 9px rgb(37, 34, 61);
     font-family: "Press Start 2P";
+    font-size: 17px;
 }
 
 button:hover {
@@ -124,7 +125,7 @@ img {
 #age-counter div {
     
     width:  2.9vh;
-    height: 3vh;
+    height: 2.4vh;
     display: inline-block;
     background-color: gold;
   }
