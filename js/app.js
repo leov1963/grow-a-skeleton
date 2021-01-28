@@ -26,7 +26,7 @@ const hungerTextColor = () => {
         document.getElementById("hunger-html").style.color = "red"
     } else if (skeleton.hunger < 8 && skeleton.hunger > 2) {
         document.getElementById("hunger-html").style.color = "white"
-    } else if (skeleton.hunger <= 2) {
+    } else {
         document.getElementById("hunger-html").style.color = "green"
     }
 }
@@ -36,24 +36,18 @@ const thirstTextColor = () => {
         document.getElementById("thirst-html").style.color = "red"
     } else if (skeleton.thirst < 8 && skeleton.thirst > 2) {
         document.getElementById("thirst-html").style.color = "white"
-    } else if (skeleton.thirst <= 2) {
+    } else {
         document.getElementById("thirst-html").style.color = "green"
     }
 }
 
-const dRedText = () => {
+const darknessTextColor = () => {
     if (skeleton.darkEnergy <= 2) {
         document.getElementById("darkEnergy-html").style.color = "red"
-    } else {
+    } else if (skeleton.darkEnergy < 8 && skeleton.darkEnergy > 2) {
         document.getElementById("darkEnergy-html").style.color = "white"
-    }
-}
-
-const dGreenText = () => {
-    if (skeleton.darkEnergy >= 8) {
-        document.getElementById("darkEnergy-html").style.color = "green"
     } else {
-        document.getElementById("darkEnergy-html").style.color = "white"
+        document.getElementById("darkEnergy-html").style.color = "green" 
     }
 }
 
@@ -141,8 +135,6 @@ const thirstTimer = (ms) => {
             
             skeleton.thirst++
             thirstTextColor()
-            // tGreenText()
-            // console.log(`Thirst: ${skeleton.thirst}`)
             document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`            
             
             const randomMilliseconds = getRanNumInRange(2, 7) * 1000
@@ -172,9 +164,7 @@ const darknessTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.darkEnergy > 0 && skeleton.level < 3) {
             skeleton.darkEnergy--
-            dRedText()
-            dGreenText()
-            // console.log(`D E: ${skeleton.darkEnergy}`)
+            darknessTextColor()
             document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
         }
     }, 7000)
@@ -206,7 +196,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("h3").innerHTML = "Let's help our friend grow!<br /><br />make sure to water, fertalize, and imbue the skull with dark energy as needed"
     hungerTextColor() 
     thirstTextColor()
-    dGreenText()
+    darknessTextColor()
 })
 
 document.querySelector("#start-button").addEventListener("click", () => {
@@ -237,8 +227,7 @@ document.getElementById("fertalize").addEventListener("click", () => {
 document.getElementById("dark-energy").addEventListener("click", () => {
     if (skeleton.darkEnergy < 10) {
         skeleton.darkEnergy++
-        dRedText()
-        dGreenText()
+        darknessTextColor()
         document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}`
     }
 })
