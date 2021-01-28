@@ -20,26 +20,29 @@ const skeleton = {
 const getRanNumInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-const hRedText = () => {
+ 
+const hungerTextColor = () => {
     if (skeleton.hunger >= 8) {
         document.getElementById("hunger-html").style.color = "red"
         console.log("red")
     } else if (skeleton.hunger < 8 && skeleton.hunger > 2) {
         document.getElementById("hunger-html").style.color = "white"
         console.log("white")
+    } else if (skeleton.hunger <= 2) {
+        document.getElementById("hunger-html").style.color = "green"
+        console.log("green")
     }
 }
 
-const hGreenText = () => {
-    if (skeleton.hunger <= 2) {
-        document.getElementById("hunger-html").style.color = "green"
-        console.log("green")
-    } else if (skeleton.hunger > 2 && skeleton.hunger < 8) {
-        document.getElementById("hunger-html").style.color = "white"
-        console.log("G:white")
-    }
-}
+// const hGreenText = () => {
+//     if (skeleton.hunger <= 2) {
+//         document.getElementById("hunger-html").style.color = "green"
+//         console.log("green")
+//     } else if (skeleton.hunger > 2 && skeleton.hunger < 8) {
+//         document.getElementById("hunger-html").style.color = "white"
+//         console.log("G:white")
+//     }
+// }
 
 const tRedText = () => {
     if (skeleton.thirst >= 8) {
@@ -179,8 +182,8 @@ const hungerTimer = () => {
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
         } else if (skeleton.hunger < 10 && skeleton.level < 3) {
             skeleton.hunger++
-            hRedText()
-            hGreenText()
+            hungerTextColor()
+            // hGreenText()
             // console.log(`hunger: ${skeleton.hunger}`)
             document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         }
@@ -226,7 +229,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
     document.querySelector("#age-counter").innerHTML = `Level 1 Progress:`
     document.querySelector("h3").innerHTML = "Let's help our friend grow!<br /><br />make sure to water, fertalize, and imbue the skull with dark energy as needed"
-    hGreenText()
+    hungerTextColor() // hGreenText()
     tGreenText()
     dGreenText()
 })
@@ -251,8 +254,8 @@ document.getElementById("water").addEventListener("click", () => {
 document.getElementById("fertalize").addEventListener("click", () => {
     if (skeleton.hunger > 0) {
         skeleton.hunger--
-        hRedText()
-        hGreenText()
+        hungerTextColor()
+        // hGreenText()
         document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`
         // console.log(`hunger: ${skeleton.hunger}`)
     }
