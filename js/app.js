@@ -93,21 +93,16 @@ const ageTimer = () => {
 }
 
 const thirstTimer = (ms) => {
-
     setTimeout( () => {
         if (skeleton.isDead || skeleton.level === 3) {
             return 
-        }
-        else if (skeleton.thirst === 10) {
+        } else if (skeleton.thirst === 10) {
             skeleton.isDead = true
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } 
-        else {
-            
+        } else {            
             skeleton.thirst++
             thirstTextColor()
-            document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`            
-            
+            document.querySelector("#thirst-html").innerHTML = `Thirst: ${skeleton.thirst}`                        
             const randomMilliseconds = getRanNumInRange(2, 7) * 1000
             thirstTimer(randomMilliseconds)
         }
@@ -115,39 +110,37 @@ const thirstTimer = (ms) => {
 }
 
 const hungerTimer = (ms) => {
-
     setTimeout( () => {
-        console.log(ms + "milliseconds has passed")
         if (skeleton.isDead || skeleton.level === 3) {
             return 
-        }
-        else if (skeleton.hunger === 10) {
+        } else if (skeleton.hunger === 10) {
             skeleton.isDead = true
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } 
-        else {
-            
+        } else {            
             skeleton.hunger++
             hungerTextColor()
             document.querySelector("#hunger-html").innerHTML = `Hunger: ${skeleton.hunger}`            
-            
             const randomMilliseconds = getRanNumInRange(4, 9) * 1000
             hungerTimer(randomMilliseconds)
         }
     }, ms)
 }
 
-const darknessTimer = () => {
-    const dTimer = setInterval(() => {
-        if (skeleton.darkEnergy === 0) {
-            clearInterval(dTimer)
+const darknessTimer = (ms) => {
+    setTimeout( () => {
+        if (skeleton.isDead || skeleton.level === 3) {
+            return 
+        } else if (skeleton.darkEnergy === 0) {
+            skeleton.isDead = true
             document.querySelector("body").innerHTML = "<h1 id='game-over'>Game Over!</h1><h4>Even the undead need proper care!</h4>"
-        } else if (skeleton.darkEnergy > 0 && skeleton.level < 3) {
+        } else {            
             skeleton.darkEnergy--
             darknessTextColor()
-            document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}` 
+            document.querySelector("#darkEnergy-html").innerHTML = `Dark Energy: ${skeleton.darkEnergy}`            
+            const randomMilliseconds = getRanNumInRange(6, 11) * 1000
+            darknessTimer(randomMilliseconds)
         }
-    }, 7000)
+    }, ms)
 }
 
 const squareTimer = () => {
@@ -182,7 +175,7 @@ document.querySelector("#start-button").addEventListener("click", () => {
 document.querySelector("#start-button").addEventListener("click", () => {
     thirstTimer(getRanNumInRange(2, 7) * 1000)
     hungerTimer(getRanNumInRange(4, 9) * 1000)
-    darknessTimer()
+    darknessTimer(getRanNumInRange(6, 11) * 1000)
     ageTimer()
 })
 
