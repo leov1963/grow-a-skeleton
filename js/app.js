@@ -24,16 +24,20 @@ const getRanNumInRange = (min, max) => {
 const hRedText = () => {
     if (skeleton.hunger >= 8) {
         document.getElementById("hunger-html").style.color = "red"
-    } else {
+        console.log("red")
+    } else if (skeleton.hunger < 8 && skeleton.hunger > 2) {
         document.getElementById("hunger-html").style.color = "white"
+        console.log("white")
     }
 }
 
 const hGreenText = () => {
     if (skeleton.hunger <= 2) {
         document.getElementById("hunger-html").style.color = "green"
-    } else {
+        console.log("green")
+    } else if (skeleton.hunger > 2 && skeleton.hunger < 8) {
         document.getElementById("hunger-html").style.color = "white"
+        console.log("G:white")
     }
 }
 
