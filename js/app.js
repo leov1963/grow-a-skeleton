@@ -1,4 +1,6 @@
-// ---global vars---
+// -------------------------------------
+//         ---global vars---
+// -------------------------------------
 
 const skeleton = {
     age: 0,
@@ -9,7 +11,11 @@ const skeleton = {
     isDead: false
 }
 
-// ---functions---
+
+// -------------------------------------
+//           ---functions---
+// -------------------------------------
+
 
 const getRanNumInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -201,8 +207,10 @@ const squareTimer = () => {
     }
 
 }
-
-// ---event listeners---
+ 
+// -------------------------------------
+//         ---event listeners---
+// -------------------------------------
 
 // code to replace html elements when the play button is pressed
 
