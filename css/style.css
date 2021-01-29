@@ -66,6 +66,14 @@ img {
     padding-bottom: 30px;
 }
 
+audio {
+    display: flex;
+    justify-content: center;
+    outline: none;
+    height: 15px;
+    opacity: 25%;
+}
+
 #game-over {
     color: white;
 }
