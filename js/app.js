@@ -161,22 +161,17 @@ const squareTimer = () => {
 
 document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#game-buttons-hidden").id = "game-buttons-shown"
-})
-
-document.querySelector("#start-button").addEventListener("click", () => {
     document.querySelector("#content-control").innerHTML = '<div id="game-control"><div id="stats"><p id="thirst-html"> Thirst: 0</p> <p id="hunger-html"> Hunger: 0 </p> <p id="darkEnergy-html"> Dark Energy: 10 </p> </div> </div>'
     document.querySelector("#age-counter").innerHTML = `Level 1 Progress:`
     document.querySelector("h3").innerHTML = "Let's help our friend grow!<br /><br />make sure to water, fertalize, and imbue the skull with dark energy as needed"
     hungerTextColor() 
     thirstTextColor()
     darknessTextColor()
-})
-
-document.querySelector("#start-button").addEventListener("click", () => {
     thirstTimer(getRanNumInRange(2, 7) * 1000)
     hungerTimer(getRanNumInRange(4, 9) * 1000)
     darknessTimer(getRanNumInRange(6, 11) * 1000)
     ageTimer()
+
 })
 
 document.getElementById("water").addEventListener("click", () => {
