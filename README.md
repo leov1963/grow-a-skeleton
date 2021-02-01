@@ -10,6 +10,38 @@ I was inspired to make a tamagotchi clone but with a silly, spooky themed twist.
 
 ---
 
+## Screenshots 
+
+- start screen
+
+![image path](./assets/grow-a-skeleton-screenshots/screen-shot1.png)
+
+- game start
+
+![image path](./assets/grow-a-skeleton-screenshots/screen-shot3.png)
+
+- Oh no! The thirst level is getting dangerously high. Better water it!
+
+![image path](./assets/grow-a-skeleton-screenshots/screen-shot2.png)
+
+- Let's keep the hunger levels down with some fertalizer!
+
+![image path](./assets/grow-a-skeleton-screenshots/screen-shot4.png)
+
+- We don't want the dark energy to get too low! Let's imbue some more
+
+![image path](./assets/grow-a-skeleton-screenshots/screen-shot5.png)
+
+- We made it to level 2! Now we continue the process to help our friend out!
+
+![image path](./assets/grow-a-skeleton-screenshots/level2-screenshots.png)
+
+- You win! The undead friend is all grown up and fully powered!
+
+![image path](./assets/grow-a-skeleton-screenshots/screen-shot10.png)
+
+---
+
 ## User Stories & Wireframes
 
 ### Start Page
@@ -47,3 +79,27 @@ I was inspired to make a tamagotchi clone but with a silly, spooky themed twist.
 - Oh no! The player lost because bones did not get the care they needed. If the thirst or hunger meters reach ten it's game over. This also happens if the dark energy depletes down to 0.
 
 ![image path](./assets/GaS-loss.png)
+
+--- 
+
+## Technologies & Code 
+
+- Javascript, HTML, and CSS where used together to build this game.
+
+- Here's an interesting recursive function I used to randomize the timing of the thirst, hunger, and dark energy:
+
+![image path](./assets/grow-a-skeleton-screenshots/code-screenshot.png)
+
+---
+
+## Future development
+
+- Add additional assets to be rewarded with different end-game skeletons.
+- Disable thirst, hunger, and dark energy buttons when not needed.
+- Add sound effects.
+- Add new stats to monitor. 
+- Pick between two different undead buddies to grow.
+- Make the game look better on smaller screens.
+
+
+
